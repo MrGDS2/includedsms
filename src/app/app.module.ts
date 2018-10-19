@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import firebase from 'firebase';
 //import { AngularFireDatabaseModule } from 'angularfire2/database';
  // Initialize Firebase
@@ -31,6 +32,7 @@ import firebase from 'firebase';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
+   
     ReactiveFormsModule // <-- here
     
   ],

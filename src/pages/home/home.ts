@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
-
+import { AlertController } from 'ionic-angular';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'page-home',
@@ -13,11 +13,11 @@ export class HomePage implements OnInit{
 
    client:any;
   
-   clientName:String;
+    clientName:any;
 
   constructor(public navCtrl: NavController,
      private db:AngularFireDatabase,
-    private fb : FormBuilder) {}
+    private fb : FormBuilder,private alert:AlertController) {}
 
     ngOnInit() {
       this.buildForm()
@@ -36,8 +36,17 @@ export class HomePage implements OnInit{
     }
     updateClientInfo() {
       this.client.update({ phoneNumber: this.e164 })
-    //  this.client.update({name:{clientName}})
-  }
+
+     let popup= this.alert.create({
+         title: `You will now receive SMS updates to ${this.e164}`,
+         buttons: ['OK']
+       });
+       popup.present();
+      }
+    
+
+    // this.client.update({name: this.clientName})
+  
 
 
     

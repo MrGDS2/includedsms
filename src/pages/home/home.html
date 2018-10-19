@@ -1,13 +1,15 @@
-<h1>Included Family Health Status SMS: 
+<div class="header" ><h1>Included Family Health Status SMS: 
    
 </h1>
-  <h1>Fill out name of client and the family phone number</h1>
+  <h1>Fill out name of client and the family phone number</h1>   </div>
 
 <div class="top">
+  
   <form [formGroup]="numberForm" (ngSubmit)="updateClientInfo()" novalidate>
    <!--   <input type="text" placeholder="client name">-->
-   <ion-grid>
-    <ion-row>
+   <ion-grid align-items: center>
+     
+     <ion-row>
       <ion-col >
         <input type="text" formControlName="country"  placeholder="1">
         <input type="text" formControlName="area"     placeholder="877">
@@ -22,7 +24,7 @@
     <ion-row>
       <ion-col>
         
-       <button ion-button color="secondary" type="submit" value="Get SMS Updates" [disabled]="numberForm.invalid"> Receive SMS Updates</button> 
+       <button  large full ion-button color="secondary" type="submit" value="Get SMS Updates" [disabled]="numberForm.invalid"> Receive SMS Updates</button> 
       </ion-col>
     </ion-row>
   </ion-grid> 

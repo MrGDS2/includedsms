@@ -2,10 +2,18 @@
 @import url('https://fonts.googleapis.com/css?family=Charmonman');
 @import url('https://fonts.googleapis.com/css?family=Charmonman|Lobster');
 page-home {
-  background-image: url('http://www.baltana.com/files/wallpapers-11/Clouds-Wallpaper-HD-30234.jpg ');
+  background-color: cornflowerblue;
 }
 h1{
     font-family: 'Lobster', cursive;
+    color: azure;
+  
+
+}
+.header{
+    background-color: black;
+    opacity: .8;
+    border-radius:5px;
 }
 
 .top
