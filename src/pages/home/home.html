@@ -1,22 +1,38 @@
 <h1>Included Family Health Status SMS: 
    
 </h1>
-<ul>
-  <li>Order Number: {{ client.phoneNumbers }}</li>
-</ul>
   <h1>Fill out name of client and the family phone number</h1>
 
-
+<div class="top">
   <form [formGroup]="numberForm" (ngSubmit)="updateClientInfo()" novalidate>
    <!--   <input type="text" placeholder="client name">-->
-      <input type="text" formControlName="country"  placeholder="1">
-      <input type="text" formControlName="area"     placeholder="877">
-      <input type="text" formControlName="prefix"   placeholder="393">
-      <input type="text" formControlName="line"     placeholder="4448">
-  
-      <input type="submit" value="Get SMS Updates" [disabled]="numberForm.invalid">
-  </form>
-  
-  <p *ngIf="numberForm.invalid && numberForm.touched">That's not a valid phone number</p>
+   <ion-grid>
+    <ion-row>
+      <ion-col >
+        <input type="text" formControlName="country"  placeholder="1">
+        <input type="text" formControlName="area"     placeholder="877">
+      </ion-col>
+    
+      
+        <ion-col>
+        <input type="text" formControlName="prefix"   placeholder="393">
+        <input type="text" formControlName="line"     placeholder="4448">
+      </ion-col>
+    </ion-row>  
+    <ion-row>
+      <ion-col>
+        
+       <button ion-button color="secondary" type="submit" value="Get SMS Updates" [disabled]="numberForm.invalid"> Receive SMS Updates</button> 
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
 
-  <h3> Updates will be texted to {{ client.phoneNumber || '"number not inputed"' }}</h3>
+  
+  
+      
+  </form>
+</div>
+  <ion-row><ion-col>  <p *ngIf="numberForm.invalid && numberForm.touched" class="alert" >That's not a valid phone number</p>  <img  class="EWI" /> </ion-col> </ion-row>
+
+
+  <!--<h3> Updates will be texted to {{ client.phoneNumber || '"number not inputed"' }}</h3>-->

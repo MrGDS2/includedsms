@@ -1,3 +1,30 @@
-page-home {
 
+@import url('https://fonts.googleapis.com/css?family=Charmonman');
+@import url('https://fonts.googleapis.com/css?family=Charmonman|Lobster');
+page-home {
+  background-image: url('http://www.baltana.com/files/wallpapers-11/Clouds-Wallpaper-HD-30234.jpg ');
+}
+h1{
+    font-family: 'Lobster', cursive;
+}
+
+.top
+{
+    background-color: cyan;
+    opacity: .9;
+    border-radius: 25px;
+
+}
+
+.EWI
+{
+   // background-color: red;
+    background-image: url('http://www.clker.com/cliparts/X/K/r/h/r/Q/alert-icon-red-md.png');
+   
+}
+
+.alert
+{
+    color: red;
+    
 }
