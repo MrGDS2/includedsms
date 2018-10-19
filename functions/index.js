@@ -12,54 +12,53 @@ admin.initializeApp(functions.config().firebase);
 
 const twilio= require('twilio');
 
-const accountSid='AC35b0520a503e9ec60eb740564469dd60';
-//functions.config().twilio.sid;
-const authToken='9f5062a71de0157a6cd3238a6825deb1';
-//functions.config().twilio.token;
+const accountSid=functions.config().twilio.sid;
+
+const authToken=functions.config().twilio.token;
 
 const TwilioClient= new twilio(accountSid,authToken);
 
-const twilioNum= '+19085163288' //twilio given num
+const twilioNum= functions.config().twilio.num //twilio given num
 
-const myNum= '+19175740612'
+
 
 
 /// start cloud function
 
 exports.textStatus = functions.database
-       .ref('/Client/clientKey}/status')
+       .ref("/Client/{clientKey}/status")
        .onUpdate(event => {
 
-   //const clientKey = event.params.clientKey
+ const clientKey = event.after.key
 
 
  // console.log(event)
     return admin.database()
-                .ref(`/Client/${clientKey}`)
-                .once('value')
+                .ref(`Client/client0/`)
+                .once("value")
                 .then(snapshot => snapshot.val())
-                .then(client => {
-                    const status      = client.status
+                .then(client=>{
+                    const statuss      = client.status
                    // const name= client.name
-                    const phoneNumber = client.phoneNumber
+                   const phoneNumber = client.phoneNumber
 
-                    if ( !validE164(phoneNumber) ) {
+                  if ( !validE164(phoneNumber) ) {
                         throw new Error('number must be E164 format!')
                     }
 
                     const textMessage = {
-                        body: `Your Loved one : ${status}`,
-                        to: myNum,  // Text to this number
+                        body: `Your Loved one is doing :${statuss}` ,
+                        to: phoneNumber,  // Text to this number
                         from: twilioNum // From a valid Twilio number
                     }
 
                     return TwilioClient.messages.create(textMessage)
                 })
                 .then(message => console.log(message.sid, 'success'))
-                .catch(err => console.log(err))
+                .catch(err => console.log(err,'text not sent'))
+            
 
-
-});
+            });
 
 
 /// Validate E164 format
