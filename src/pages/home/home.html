@@ -1,7 +1,7 @@
 <div class="header" ><h1>Included Family Health Status SMS: 
    
 </h1>
-  <h1>Fill out name of client and the family phone number</h1>   </div>
+  <h1>Fill in the family phone number</h1>   </div>
 
 <div class="top">
   
@@ -35,6 +35,30 @@
   </form>
 </div>
   <ion-row><ion-col>  <p *ngIf="numberForm.invalid && numberForm.touched" class="alert" >That's not a valid phone number</p>  <img  class="EWI" /> </ion-col> </ion-row>
+<div class="bottom">
+    <ion-grid align-items: center>
+     
+        <ion-row>
+         <ion-col >
+           <button ion-button color="smile"large full round id="smile" (click)="updateHappyStatus()"><ion-icon ios="ios-happy" md="md-happy"></ion-icon></button> 
+         </ion-col>
+       
+         
+           <ion-col>
+              <button ion-button color="danger" large full round id="heart" (click)="updateLoveStatus()"> 
+                 <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
+              </button>
+         </ion-col>
 
+         <ion-col>
+            <button ion-button color="frown"large full round id="sad" (click)="updateSadStatus()">
+            <ion-icon ios="ios-sad" md="md-sad"></ion-icon>
+            </button>
+       </ion-col>
+
+       </ion-row>  
+       </ion-grid>
+    
+</div> 
 
   <!--<h3> Updates will be texted to {{ client.phoneNumber || '"number not inputed"' }}</h3>-->

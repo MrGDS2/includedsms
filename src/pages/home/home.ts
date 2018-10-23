@@ -44,7 +44,48 @@ export class HomePage implements OnInit{
        popup.present();
       }
     
+      updateHappyStatus() {
 
+        // switch () {
+        //   case value:
+            
+        //     break;
+        
+        //   default:
+        //     break;
+        // }
+        this.client.update({ status: "Happy to be here making friends" })
+  
+       let popup= this.alert.create({
+           title: ` Status change to Happy`,
+           buttons: ['OK']
+         });
+         popup.present();
+        }
+
+        updateLoveStatus() {
+
+    
+          this.client.update({ status: "Loves the enviorment fits in fine with us" })
+    
+         let popup= this.alert.create({
+             title: ` Status change to Loves it!`,
+             buttons: ['OK']
+           });
+           popup.present();
+          }
+
+          updateSadStatus() {
+
+    
+            this.client.update({ status: "Not an easy adjustment, visit today" })
+      
+           let popup= this.alert.create({
+               title: ` Status change to Sad`,
+               buttons: ['OK']
+             });
+             popup.present();
+            }
     // this.client.update({name: this.clientName})
   
 
